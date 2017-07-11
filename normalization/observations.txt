@@ -1,0 +1,84 @@
+After adding self interaction terms(quadratic,cubic,quartic) to induce multicollinearity-
+
+Without standardization-
+RMSE->199727.9842
+R2_value->0.73
+coefficients->
+
+[ -3.27297546e-03   7.06033988e-03  -2.67009260e-06  -1.01901944e-03
+  -2.60426690e-02   6.22583982e-07  -6.22597366e-07  -2.60850994e-05
+  -3.18542407e-06   1.46989579e-04   1.37215730e-07   1.16294327e-05
+   9.28322555e-07  -1.80410164e-04  -1.02741642e-03  -5.47500687e-03
+   4.53728230e-06   6.02865805e-05   3.74087761e-04  -1.06942346e-03
+   2.01749888e-05  -1.95796101e-09   3.10499638e-04  -4.27335639e-09
+   1.44243197e-14   8.01714489e-04  -1.03398844e-01   3.89399997e-05
+  -1.70610805e-03  -2.62877411e+00   8.23531529e-03  -1.36657213e-04
+  -9.44374202e-04  -8.50091754e-03   2.73544148e-03  -9.31359988e-02
+   7.36843012e-04]
+
+
+with mean centering(partial standardization)(only subtracting mean but not dividing by variance)
+RMSE->310730.180399
+R2_value->0.3570
+coefficients->
+
+[  6.25705398e-05  -1.57579284e-05   2.79431774e-07   1.61631688e-04
+   1.02875298e-03   9.39290436e-05  -9.39290436e-05   1.02830514e-07
+   2.58635369e-07  -8.33769024e-06  -1.07599651e-07   3.49201844e-08
+  -1.44006088e-08  -1.80413156e-07   3.81963520e-08   1.07700022e-07
+   1.77147851e-07   5.64625874e-07   1.24498403e-06   5.47980524e-02
+   4.69190275e-05  -8.24603824e-09   3.34247607e-04  -4.23484577e-09
+   1.25817199e-14  -9.90509658e-04   2.51413964e-01   7.41925304e-05
+  -9.90509658e-04  -2.51413964e-01   7.41925304e-05  -1.27999198e-06
+  -2.03936172e-06  -2.21233731e-05  -4.36235752e-05  -2.69109252e-02
+   1.77811234e-03]
+
+
+ with variance standardization(only dividing by variance and not subtracting mean)
+ RMSE->142216.158
+ R2_value->0.8653
+ coefficients->
+
+ [  5.11179121e+01  -1.26997482e+05   9.40327773e+05  -4.48601028e+05
+  -6.48988663e+04   1.79422922e+01  -1.79422923e+01   6.85757711e+04
+  -1.41689610e+04  -2.01229912e+05  -1.88821079e+04  -9.92281772e+03
+  -5.33787788e+04   8.27335749e+04  -1.57251899e+04   7.09820945e+02
+  -5.16899887e+05   1.16546452e+05  -8.59914535e+03   2.45000249e+05
+  -3.74878077e+04   2.39764352e+03   4.18821469e+04  -3.89186042e+03
+   9.78223193e+01   7.39221923e+02  -2.86896768e+03   3.37315016e+01
+  -1.56677892e+03  -7.69012393e+04   7.92272841e+03  -3.66784104e+04
+   7.44049032e+03  -4.67068211e+02   2.39599435e+05  -1.09982383e+05
+   1.75401980e+04]
+
+ with complete standardization
+ RMSE->142216.158073
+ R2_value->0.8653
+ coefficients->
+
+ [  5.11179121e+01   3.52695656e+03  -7.92195004e+03   1.31824277e+05
+   1.96744854e+03   4.10138692e+03  -4.10138692e+03  -1.52102117e+03
+  -1.41689610e+04   1.31379300e+04  -1.88821079e+04  -9.92281772e+03
+  -5.33787788e+04  -2.78795163e+04  -6.15686277e+03   7.09820945e+02
+  -4.57386576e+03   4.28357286e+04  -8.59914535e+03   8.68285547e+04
+  -1.98502096e+04   2.39764352e+03   3.17409866e+04  -3.53569786e+03
+   9.78223193e+01  -2.02446242e+04   3.54026972e+02   3.97822996e+03
+  -2.02446242e+04  -3.54026972e+02   3.97822996e+03  -6.12817047e+03
+   4.16054168e+03  -4.67068211e+02  -1.79721097e+04  -6.96482374e+03
+   1.75401980e+04]
+
+
+
+Conclusions->
+
+1)There is huge change in RMSE when standardization is involved.Although it is bit difficult to compare RMSE of two different models but considering
+the only change is standardization,there is almost 28% of decrease in RMSE(199727.98->142216).On the contraty several sources state that multicollinearity
+generally does not affect the predictive power but it only affects the clarity in concluding effect of individual feature on the final output.
+
+2)Centering seem to worsen the performance.On the contraty sources state that centring can help decrease multicolinearity due to interaction terms.(Why?)
+source-https://stats.stackexchange.com/questions/151468/adding-interaction-terms-to-multiple-linear-regression
+
+3)Variance standadization alone can give satisfactory result.(Why?)
+
+
+There is nothing clear about what is effect of standardization and why it is done.The only explaination I found was that it helps to interpret the
+coefficient and also reduces numerical computation.Here on the contrary there is boost in predictive power.
