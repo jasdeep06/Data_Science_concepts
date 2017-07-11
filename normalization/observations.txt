@@ -1,3 +1,18 @@
+With no interaction terms(vanialla dataset)
+
+RMSE->210432.976199
+R2_value->0.705120350157
+
+coefficients->
+[  6.34834408e+01  -8.29677043e+04   5.51472095e+04   3.15560008e+02
+   1.60016696e+00   2.07020212e+02  -2.07020212e+02  -6.16439636e+03
+   1.61780169e+03   4.58036444e+02  -4.79217199e+04  -1.06081669e+02
+  -5.68514341e+04]
+
+
+
+
+
 After adding self interaction terms(quadratic,cubic,quartic) to induce multicollinearity-
 
 Without standardization-
@@ -70,14 +85,16 @@ coefficients->
 
 Conclusions->
 
-1)There is huge change in RMSE when standardization is involved.Although it is bit difficult to compare RMSE of two different models but considering
+1)There is impovement in model when interaction terms are added even without standardization.
+
+2)There is huge change in RMSE when standardization is involved.Although it is bit difficult to compare RMSE of two different models but considering
 the only change is standardization,there is almost 28% of decrease in RMSE(199727.98->142216).On the contraty several sources state that multicollinearity
 generally does not affect the predictive power but it only affects the clarity in concluding effect of individual feature on the final output.
 
-2)Centering seem to worsen the performance.On the contraty sources state that centring can help decrease multicolinearity due to interaction terms.(Why?)
+3)Centering seem to worsen the performance.On the contraty sources state that centring can help decrease multicolinearity due to interaction terms.(Why?)
 source-https://stats.stackexchange.com/questions/151468/adding-interaction-terms-to-multiple-linear-regression
 
-3)Variance standadization alone can give satisfactory result.(Why?)
+4)Variance standadization alone can give satisfactory result.(Why?)
 
 
 There is nothing clear about what is effect of standardization and why it is done.The only explaination I found was that it helps to interpret the
